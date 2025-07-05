@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estratégia Exclusiva para Aviator</title>
+  <style>
+    /* Keyframes para Animações */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 10px 30px rgba(230, 0, 0, 0.4); }
+      50% { transform: scale(1.05); box-shadow: 0 10px 40px rgba(230, 0, 0, 0.6); }
+      100% { transform: scale(1); box-shadow: 0 10px 30px rgba(230, 0, 0, 0.4); }
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Estilos Gerais */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d1117;
+      color: #c9d1d9;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      padding: 40px 20px;
+      background: linear-gradient(180deg, #000000 0%, #0d1117 100%);
+      border-bottom: 2px solid #e60000;
+      animation: fadeIn 1s ease-out;
+    }
+    h1 {
+      font-size: 3em;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 0 15px #e60000, 0 0 25px #e60000;
+    }
+    h2 {
+      color: #ff4d4d;
+      margin: 10px 0 30px;
+      font-size: 1.6em;
+      font-weight: normal;
+    }
+    .ebook-cover {
+      max-width: 300px;
+      width: 75%;
+      border: 4px solid #e60000;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      transition: transform 0.4s ease-in-out;
+      animation: pulse 2.5s infinite ease-in-out;
+    }
+    .ebook-cover:hover {
+      transform: scale(1.08) rotate(3deg) !important;
+    }
+
+    /* Botão Principal (CTA) */
+    .btn-pix {
+      background: linear-gradient(45deg, #e60000, #ff3333);
+      color: white;
+      padding: 20px 45px;
+      font-size: 1.6em;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(230, 0, 0, 0.5);
+    }
+    .btn-pix:hover {
+      background: linear-gradient(45deg, #ff3333, #e60000);
+      transform: translateY(-8px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(230, 0, 0, 0.7);
+    }
+
+    /* Seções de Conteúdo */
+    .content-section {
+      padding: 50px 20px;
+      max-width: 850px;
+      margin: 40px auto;
+      background-color: #161b22;
+      border-radius: 20px;
+      border: 1px solid #30363d;
+      animation: fadeIn 1.5s ease-out;
+    }
+    .content-section h3 {
+      font-size: 2.2em;
+      color: #e60000;
+      margin-bottom: 35px;
+      text-transform: uppercase;
+    }
+
+    /* Itens de Benefícios e Listas */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      text-align: left;
+    }
+    .grid-item {
+      background-color: #0d1117;
+      padding: 25px;
+      border-radius: 10px;
+      border-left: 4px solid #e60000;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideIn 1s ease-out forwards;
+      opacity: 0;
+    }
+    .grid-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    .grid-item p {
+      font-size: 1.1em;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      line-height: 1.6;
+    }
+    .grid-item .icon {
+      font-size: 1.8em;
+      margin-right: 15px;
+      color: #e60000;
+    }
+    
+    /* NOVO: Cronômetro de Oferta */
+    .countdown-container {
+        background: linear-gradient(135deg, #e60000, #8b0000);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 600px;
+    }
+    .countdown-container h4 {
+        margin: 0 0 10px 0;
+        font-size: 1.3em;
+        text-transform: uppercase;
+    }
+    #countdown {
+        font-size: 2.5em;
+        font-weight: bold;
+        letter-spacing: 5px;
+    }
+
+    /* NOVO: Seção de Bônus */
+    .bonus-box {
+      margin-top: 30px;
+      padding: 30px;
+      background-color: rgba(230, 0, 0, 0.1);
+      border: 2px dashed #e60000;
+      border-radius: 15px;
+      animation: float 4s infinite ease-in-out;
+    }
+    .bonus-box .icon {
+      font-size: 3.5em;
+      color: #e60000;
+    }
+    .bonus-box h4 {
+      font-size: 1.8em;
+      margin: 10px 0;
+      color: #ff4d4d;
+    }
+
+    /* NOVO: Seção de Depoimentos */
+    .testimonial {
+      background-color: #0d1117;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 4px solid #4CAF50; /* Verde para prova social */
+    }
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+    .testimonial .author {
+      font-weight: bold;
+      font-style: normal;
+      color: #4CAF50;
+    }
+    
+    /* NOVO: FAQ Interativo */
+    .faq-item {
+        background: #0d1117;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border-left: 4px solid #e60000;
+    }
+    .faq-question {
+        padding: 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    .faq-answer {
+        padding: 0 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, padding 0.5s ease;
+        text-align: left;
+        line-height: 1.7;
+    }
+    .faq-item.active .faq-answer {
+        max-height: 200px; /* Adjust as needed */
+        padding: 0 20px 20px;
+    }
+    .faq-question .toggle {
+        font-size: 1.5em;
+        transition: transform 0.3s;
+    }
+    .faq-item.active .toggle {
+        transform: rotate(45deg);
+    }
+    
+    /* Rodapé */
+    footer {
+      margin-top: 50px;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #888;
+      border-top: 1px solid #30363d;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Domine o Voo</h1>
+    <h2>A Estratégia Definitiva para o Aviator</h2>
+    <img src="https://aws-assets.kiwify.com.br/SB4dwDkIVZMgTj5/1000094935_27722fe1caed43b4ad8e204599dbf893.png" alt="Capa do Ebook Estratégia pro Aviator" class="ebook-cover" />
+    <p style="font-size: 1.2em; max-width: 600px; margin: 0 auto 20px;">Cansado de contar com a sorte? Aprenda a analisar o jogo e a tomar decisões inteligentes para maximizar seus ganhos de forma consistente.</p>
+    
+    <div class="countdown-container">
+        <h4>OFERTA ESPECIAL EXPIRA EM:</h4>
+        <div id="countdown">01H : 25M : 00S</div>
+    </div>
+    
+    <a href="https://pay.kiwify.com.br/p199pCK" class="btn-pix" target="_blank">🚀 QUERO LUCRAR COM DESCONTO!</a>
+  </header>
+
+  <div class="content-section">
+    <h3>O que você vai Desbloquear?</h3>
+    <div class="grid-container">
+      <div class="grid-item" style="animation-delay: 0.2s;"><p><span class="icon">✅</span> <strong>Estratégias Validadas:</strong> Métodos testados e comprovados, que vão muito além do óbvio.</p></div>
+      <div class="grid-item" style="animation-delay: 0.4s;"><p><span class="icon">🧠</span> <strong>Gerenciamento de Risco:</strong> Aprenda a proteger seu capital e a apostar com inteligência.</p></div>
+      <div class="grid-item" style="animation-delay: 0.6s;"><p><span class="icon">📈</span> <strong>Análise de Padrões:</strong> Descubra como identificar os melhores momentos para entrar no jogo.</p></div>
+      <div class="grid-item" style="animation-delay: 0.8s;"><p><span class="icon">⚡</span> <strong>Acesso Imediato e Vitalício:</strong> Pague uma vez e acesse o material para sempre, direto no seu WhatsApp.</p></div>
+    </div>
+  </div>
+
+  
+  </div>
+  
+  <div class="content-section">
+    <h3>Veja o que Nossos Alunos Dizem</h3>
+    <div class="grid-container">
+        <div class="testimonial" style="animation-delay: 0.3s;">
+            <p>"Eu só perdia dinheiro. Depois do e-book, finalmente comecei a ter lucro de verdade. O capítulo sobre gerenciamento foi um divisor de águas pra mim."</p>
+            <div class="author">- João P., São Paulo/SP</div>
+        </div>
+        <div class="testimonial" style="animation-delay: 0.6s;">
+            <p>"Achei que era só mais um cursinho, mas as estratégias são muito práticas. Já recuperei o valor do e-book no primeiro dia! Recomendo."</p>
+            <div class="author">- Mariana S., Rio de Janeiro/RJ</div>
+        </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>Acesso Simples em 3 Passos</h3>
+    <div class="grid-container">
+      <div class="grid-item" style="animation-delay: 0.2s;"><p><span class="icon">1️⃣</span> <strong>Clique no Botão:  </strong>    Clique em "QUERO LUCRAR AGORA" e vá para a página de pagamento 100% segura da Kiwify.</p></div>
+      <div class="grid-item" style="animation-delay: 0.4s;"><p><span class="icon">2️⃣</span> <strong>Preencha os Dados:  </strong>    Informe seu nome e e-mail. Escolha PIX para aprovação instantânea.</p></div>
+      <div class="grid-item" style="animation-delay: 0.6s;"><p><span class="icon">3️⃣</span> <strong>Receba na Hora:   </strong>    Após a confirmação, nosso sistema envia o e-book e a planilha bônus diretamente para o seu email!</p></div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <h3>Perguntas Frequentes</h3>
+    <div id="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">O acesso é para sempre?<span class="toggle">+</span></div>
+            <div class="faq-answer"><p>Sim! O pagamento é único e você terá acesso vitalício ao e-book e a todas as futuras atualizações, sem nenhum custo adicional.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Vou ter resultados garantidos?<span class="toggle">+</span></div>
+            <div class="faq-answer"><p>O lucro é, sem exceções, 100% garantido.</p></div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Sou iniciante, serve para mim?<span class="toggle">+</span></div>
+            <div class="faq-answer"><p>Com certeza! O material foi pensado tanto para quem está começando do zero quanto para quem já tem alguma experiência mas busca aprimorar suas técnicas.</p></div>
+        </div>
+    </div>
+  </div>
+  
+  <div style="padding: 0 20px;">
+    <a href="https://pay.kiwify.com.br/p199pCK" class="btn-pix" target="_blank">SIM, EU QUERO O ACESSO IMEDIATO!</a>
+  </div>
+
+  <footer>
+  
+    <p>© 2025 - Ebook Estratégia pro Aviator - Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    // Lógica do Cronômetro
+    function startCountdown() {
+        const countdownElement = document.getElementById('countdown');
+        let duration = (1 * 60 * 60) + (25 * 60) + 40; // 1 hora, 25 mins, 40 segs
+
+        setInterval(function () {
+            if (duration <= 0) {
+                countdownElement.innerHTML = "OFERTA ENCERRADA";
+                return;
+            }
+            let hours = Math.floor(duration / 3600);
+            let minutes = Math.floor((duration % 3600) / 60);
+            let seconds = duration % 60;
+
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            countdownElement.innerHTML = `${hours}H : ${minutes}M : ${seconds}S`;
+            duration--;
+        }, 1000);
+    }
+
+    // Lógica do FAQ
+    function setupFaq() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    }
+
+    // Iniciar scripts quando a página carregar
+    document.addEventListener('DOMContentLoaded', function() {
+        startCountdown();
+        setupFaq();
+    });
+  </script>
+
+</body>
+</html>
+
